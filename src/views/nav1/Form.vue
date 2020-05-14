@@ -5,8 +5,9 @@
 		</el-form-item>
 		<el-form-item label="活动区域">
 			<el-select v-model="form.region" placeholder="请选择活动区域">
-				<el-option label="区域一4444" value="shanghai"></el-option>
-				<el-option label="区域二" value="beijing"></el-option>
+				<el-option :label="area.label" v-for="area in areas" :value="area.value"></el-option>
+<!--				<el-option label="北京" value="beijing"></el-option>-->
+<!--				<el-option label="成都" value="chengdu"></el-option>-->
 			</el-select>
 		</el-form-item>
 		<el-form-item label="活动时间">
@@ -39,7 +40,7 @@
 			<el-input type="textarea" v-model="form.desc"></el-input>
 		</el-form-item>
 		<el-form-item>
-			<el-button type="primary">立即创建</el-button>
+			<el-button type="primary" @click="onSubmit">立即创建</el-button>
 			<el-button @click.native.prevent>取消</el-button>
 		</el-form-item>
 	</el-form>
@@ -49,9 +50,13 @@
 	export default {
 		data() {
 			return {
+				areas: [
+					{'label':'北京','value':'Beijin'},
+					{'label':'成都','value':'Chengdu'}
+					],
 				form: {
-					name: '',
-					region: '',
+					name: '相亲活动',
+					region: '北京',
 					date1: '',
 					date2: '',
 					delivery: false,
@@ -63,7 +68,7 @@
 		},
 		methods: {
 			onSubmit() {
-				console.log('submit!');
+				console.log(this.form);
 			}
 		}
 	}

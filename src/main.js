@@ -3,18 +3,22 @@ import Vue from 'vue'
 import App from './App'
 import NProgress from 'nprogress'
 import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-default/index.css'
+import 'element-ui/lib/theme-chalk/index.css'
 import VueRouter from 'vue-router'
 import store from './vuex/store'
 import Vuex from 'vuex'
 import router from './router'
 import Mock from './mock'
+import OneButton from './components/button'
+
 Mock.bootstrap();
 import 'font-awesome/css/font-awesome.min.css'
-
+import echarts from 'echarts'
+Vue.component(OneButton.name, OneButton)
 Vue.use(ElementUI)
 Vue.use(VueRouter)
 Vue.use(Vuex)
+Vue.prototype.$echarts = echarts
 
 /*  定义：路由钩子主要是给使用者在路由发生变化时进行一些特殊的处理而定义的函数 */
 router.afterEach(transition => {

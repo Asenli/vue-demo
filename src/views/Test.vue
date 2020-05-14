@@ -24,6 +24,7 @@
                     password: '123456',
                 }).then(res => {
                     // 获取数据成功后的其他操作
+                    alert('1111111111')
                     console.log(res, 22222222222222)
                 }).catch(
                 )

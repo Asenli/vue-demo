@@ -4,7 +4,8 @@
 		<el-col :span="24" class="toolbar" style="padding-bottom: 0px;">
 			<el-form :inline="true" :model="filters">
 				<el-form-item>
-					<el-input v-model="filters.name" placeholder="姓名"></el-input>
+					<one-button></one-button>
+<!--					<el-input v-model="filters.name" placeholder="姓名"></el-input>-->
 				</el-form-item>
 				<el-form-item>
 					<el-button type="primary" v-on:click="getUser">查询</el-button>
@@ -56,13 +57,13 @@
 				let para = {
 					name: this.filters.name
 				};
-				this.loading = true;
+				this.loading = false;
 				//NProgress.start();
-				getUserList(para).then((res) => {
-					this.users = res.data.users;
-					this.loading = false;
-					//NProgress.done();
-				});
+				// getUserList(para).then((res) => {
+				// 	this.users = res.data.users;
+				// 	this.loading = true;
+				// 	//NProgress.done();
+				// });
 			}
 		},
 		mounted() {
